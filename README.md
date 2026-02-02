@@ -149,15 +149,74 @@ The rare case where the hype matches reality...
 - "Fix my code" — That's a different skill
 - "Research my ex" — Sir, this is a Wendy's
 
-## Requirements
+## Prerequisites
 
-For full functionality, configure these:
-- **Brave Search MCP** — Web, Reddit, Twitter, news
-- **GitHub MCP** — Repository analysis
-- **Context7 MCP** — Library documentation
-- **agent-browser** — Deep content extraction (pricing pages, long threads, comparison tables)
+This plugin uses MCP servers for multi-source research. Works without them, just less comprehensive (like research without coffee).
 
-Works without them, just less comprehensive (like research without coffee).
+### Quick Setup
+
+Add to `~/.claude.json` under `"mcpServers"`:
+
+```json
+{
+  "mcpServers": {
+    "brave-search": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@brave/brave-search-mcp-server"],
+      "env": {
+        "BRAVE_API_KEY": "${BRAVE_API_KEY}"
+      }
+    },
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+### API Keys
+
+| Service | Required | Free Tier | Get Key |
+|---------|----------|-----------|---------|
+| **Brave Search** | Yes | 2K queries/mo | [api-dashboard.search.brave.com](https://api-dashboard.search.brave.com) |
+| **GitHub** | Optional | Unlimited (lower rate limits) | [github.com/settings/tokens](https://github.com/settings/tokens) |
+| **Context7** | No | Works without key | [context7.com](https://context7.com) |
+
+### Environment Variables
+
+Create a `.env` file (add to `.gitignore`!) or export in your shell:
+
+```bash
+export BRAVE_API_KEY="your-brave-key"
+export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_your-token"  # optional
+```
+
+Then start Claude Code from that shell, or source before running:
+
+```bash
+source .env && claude
+```
+
+**Security tip:** Use `${VAR}` references in MCP config, not hardcoded keys. Never commit `.env` files.
+
+### Optional: agent-browser
+
+For deep content extraction (pricing pages, Reddit threads), install the [dev-browser plugin](https://github.com/anthropics/dev-browser):
+
+```bash
+/plugin install dev-browser@dev-browser-marketplace
+```
 
 ## Why "FOMO"?
 
