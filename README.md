@@ -212,10 +212,10 @@ source .env && claude
 
 ### Optional: agent-browser
 
-For deep content extraction (pricing pages, Reddit threads), install the [dev-browser plugin](https://github.com/anthropics/dev-browser):
+For deep content extraction (pricing pages, Reddit threads), install [agent-browser](https://github.com/vercel-labs/agent-browser):
 
 ```bash
-/plugin install dev-browser@dev-browser-marketplace
+/plugin install agent-browser@vercel-labs
 ```
 
 ## Why "FOMO"?
