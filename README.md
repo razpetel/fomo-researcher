@@ -1,13 +1,65 @@
 # fomo-researcher
 
-Multi-source research agent for Claude Code that investigates topics across GitHub, Reddit, Twitter, LinkedIn, and web.
+> Because scrolling through 47 browser tabs at 2am to figure out if that new AI tool is legit... is not a personality trait.
+
+**fomo-researcher** is a Claude Code plugin that does the obsessive research you'd do anyway — just faster, more thorough, and without the existential dread.
+
+## The Problem
+
+You hear about a new tool. You *need* to know:
+- Is it actually good or just good at marketing?
+- What does Reddit *really* think? (not the launch day hype)
+- Is the GitHub repo alive or mass grave?
+- Did that one Twitter person you trust say anything?
+- Is anyone actually using this in production?
+
+So you open 47 tabs. You forget why you opened half of them. Three hours later, you've learned more about the founder's college roommate than the actual product.
+
+## The Solution
+
+```
+/research <topic>
+```
+
+That's it. Go touch grass. Come back to a comprehensive report.
+
+## What You Get
+
+**One command. Five sources. Zero tab explosions.**
+
+| Source | What It Digs Up |
+|--------|-----------------|
+| **GitHub** | Stars, forks, issue graveyard status, "last commit 2 years ago" warnings |
+| **Reddit** | The *real* opinions (past year, so not just launch day astroturfing) |
+| **Twitter/X** | Influencer takes, mass hysteria levels, ratio alerts |
+| **LinkedIn** | "Excited to announce" posts from people who actually shipped with it |
+| **Web** | News, comparisons, that one blog post that actually explains things |
 
 ## Features
 
-- **Sequential multi-source research**: GitHub → Reddit → Twitter → LinkedIn → Web
-- **Semantic duplicate detection**: Checks existing reports by content similarity, not just filename
-- **Structured output**: Findings files + synthesized report with sentiment analysis
-- **MCP integration**: Uses Brave Search, Context7, and GitHub MCP servers
+### Semantic Memory (Not Just Pattern Matching)
+
+Already researched "Mem0"? Ask about "memory layer for AI agents" and it'll know they're related. No duplicate reports. No wasted tokens. It reads your research catalogue like a human would.
+
+```
+📋 Related reports: Mem0 (2026-02-02)
+📄 Prior research: "Production-ready, 40K stars, YC-backed"
+```
+
+### Structured Output
+
+Every research session produces:
+- **Findings files** — Raw intel from each source
+- **Synthesized report** — The "tl;dr but actually comprehensive" version
+- **Sentiment analysis** — Is vibes good or vibes concerning?
+- **Catalogue entry** — Searchable index of everything you've researched
+
+### Works With Your MCP Stack
+
+Plays nice with:
+- **Brave Search** — Reddit, Twitter, news, web (the legal kind of scraping)
+- **GitHub MCP** — Repo deep-dives without rate limit anxiety
+- **Context7** — Library docs that are actually up-to-date
 
 ## Installation
 
@@ -16,44 +68,65 @@ Multi-source research agent for Claude Code that investigates topics across GitH
 /plugin install fomo-researcher@razpetel
 ```
 
-Then restart Claude Code.
+Restart Claude Code. Research responsibly.
 
 ## Usage
 
+```bash
+# Tool/product research
+/research Cursor IDE
+
+# URL deep-dive
+/research https://github.com/anthropics/claude-code
+
+# "What is this screenshot of?"
+/research screenshot.png
+
+# The 3am spiral, but productive
+/research "that memory thing everyone's talking about"
 ```
-/research <topic | URL | image-path>
+
+**Pro tip:** Skip `/research` for simple questions. Claude knows what a for-loop is. Save the big guns for actual research.
+
+## Example Output
+
+```markdown
+# Mem0 Research Report
+
+## Key Insights
+- 40K+ GitHub stars, $24M Series A (YC-backed)
+- +26% accuracy over OpenAI Memory in benchmarks
+- Production-ready with hosted and self-hosted options
+
+## Sentiment: Very Positive
+The rare case where the hype matches reality...
 ```
 
-**Examples:**
-- `/research Mem0 memory layer`
-- `/research https://github.com/anthropics/claude-code`
-- `/research screenshot.png`
+## When NOT to Use
 
-**Skip for:** Simple facts, definitions, quick lookups — Claude will answer directly.
-
-## What It Researches
-
-| Source | What It Finds |
-|--------|---------------|
-| GitHub | Repository health, issues, PRs, activity |
-| Reddit | Community sentiment, discussions (past year) |
-| Twitter | Real-time buzz, influencer opinions (past month) |
-| LinkedIn | Professional adoption signals |
-| Web | News, docs, comparisons, Context7 library docs |
-
-## Output
-
-1. **Findings files** in `.claude/research-cache/<session>/`
-2. **Synthesized report** in `research/catalogue/<date>-<slug>.md`
-3. **Catalogue entry** in `research/catalogue.md`
+- "What's 2+2?" — Claude can handle this
+- "Fix my code" — That's a different skill
+- "Research my ex" — Sir, this is a Wendy's
 
 ## Requirements
 
-This plugin works best with these MCP servers configured:
-- Brave Search MCP (for Reddit, Twitter, web, news)
-- GitHub MCP (for repository analysis)
-- Context7 MCP (for library documentation)
+For full functionality, configure these MCP servers:
+- **Brave Search MCP** — Web, Reddit, Twitter, news
+- **GitHub MCP** — Repository analysis
+- **Context7 MCP** — Library documentation
+
+Works without them, just less comprehensive (like research without coffee).
+
+## Why "FOMO"?
+
+**F**ind **O**ut **M**ore **O**bsessively?
+
+...okay fine, it's Fear Of Missing Out. Because you *will* miss out on good tools if you don't research them. And you *will* mass adopt bad tools if you only read the landing page. This plugin is the cure.
 
 ## License
 
-MIT
+MIT — Research freely, cite responsibly.
+
+---
+
+*Built for developers who mass open tabs and mass regret it.*
