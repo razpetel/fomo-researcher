@@ -5,9 +5,7 @@
   "author": {
     "name": "razpetel"
   },
-  "skills": [
-    {
-      "skill": "./skills/research/SKILL.md"
-    }
-  ]
+  "homepage": "https://github.com/razpetel/fomo-researcher",
+  "repository": "https://github.com/razpetel/fomo-researcher",
+  "license": "MIT"
 }
