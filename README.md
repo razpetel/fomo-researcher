@@ -23,6 +23,46 @@ So you open 47 tabs. You forget why you opened half of them. Three hours later, 
 
 That's it. Go touch grass. Come back to a comprehensive report.
 
+## How It Works
+
+```
+                            /research "new shiny tool"
+                                       │
+                                       ▼
+                        ┌──────────────────────────┐
+                        │  📋 Check Catalogue      │
+                        │  (semantic matching)     │
+                        └────────────┬─────────────┘
+                                     │
+         ┌───────────┬───────────┬───┴───┬───────────┬───────────┐
+         ▼           ▼           ▼       ▼           ▼           │
+    ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐  │
+    │ GitHub  │ │ Reddit  │ │ Twitter │ │LinkedIn │ │   Web   │  │
+    │   MCP   │ │ (Brave) │ │ (Brave) │ │(Search) │ │ (All)   │  │
+    └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘  │
+         │           │           │           │           │       │
+         │      ┌────┴────┐      │           │      ┌────┴────┐  │
+         │      │ agent-  │      │           │      │ agent-  │  │
+         │      │ browser │      │           │      │ browser │  │
+         │      │(if deep)│      │           │      │(pricing)│  │
+         │      └────┬────┘      │           │      └────┬────┘  │
+         │           │           │           │           │       │
+         └─────┬─────┴─────┬─────┴─────┬─────┴─────┬─────┘       │
+               │           │           │           │             │
+               ▼           ▼           ▼           ▼             │
+         ┌─────────────────────────────────────────────┐         │
+         │              🧠 Synthesis                    │◄────────┘
+         │  Cross-reference • Themes • Sentiment       │  (prior research)
+         └─────────────────────┬───────────────────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              ▼                ▼                ▼
+        ┌──────────┐    ┌──────────┐    ┌──────────┐
+        │  Report  │    │Catalogue │    │   Key    │
+        │ (*.md)   │    │  Entry   │    │ Insights │
+        └──────────┘    └──────────┘    └──────────┘
+```
+
 ## What You Get
 
 **One command. Five sources. Zero tab explosions.**
@@ -30,10 +70,10 @@ That's it. Go touch grass. Come back to a comprehensive report.
 | Source | What It Digs Up |
 |--------|-----------------|
 | **GitHub** | Stars, forks, issue graveyard status, "last commit 2 years ago" warnings |
-| **Reddit** | The *real* opinions (past year, so not just launch day astroturfing) |
+| **Reddit** | The *real* opinions (past year, not launch day astroturfing). Deep threads via agent-browser |
 | **Twitter/X** | Influencer takes, mass hysteria levels, ratio alerts |
 | **LinkedIn** | "Excited to announce" posts from people who actually shipped with it |
-| **Web** | News, comparisons, that one blog post that actually explains things |
+| **Web** | News, comparisons, pricing pages, Context7 docs. agent-browser for the juicy bits |
 
 ## Features
 
@@ -60,6 +100,7 @@ Plays nice with:
 - **Brave Search** — Reddit, Twitter, news, web (the legal kind of scraping)
 - **GitHub MCP** — Repo deep-dives without rate limit anxiety
 - **Context7** — Library docs that are actually up-to-date
+- **agent-browser** — When you need to actually *read* the page, not just find it
 
 ## Installation
 
@@ -110,10 +151,11 @@ The rare case where the hype matches reality...
 
 ## Requirements
 
-For full functionality, configure these MCP servers:
+For full functionality, configure these:
 - **Brave Search MCP** — Web, Reddit, Twitter, news
 - **GitHub MCP** — Repository analysis
 - **Context7 MCP** — Library documentation
+- **agent-browser** — Deep content extraction (pricing pages, long threads, comparison tables)
 
 Works without them, just less comprehensive (like research without coffee).
 
