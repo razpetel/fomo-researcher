@@ -1,6 +1,6 @@
 # fomo-researcher
 
-> Because scrolling through 47 browser tabs at 2am to figure out if that new AI tool is legit... is not a personality trait.
+> Because while scrolling through 47 browser tabs at 2am to figure out if that new AI tool is legit... is not a personality trait.
 
 **fomo-researcher** is a Claude Code plugin that does the obsessive research you'd do anyway — just faster, more thorough, and without the existential dread.
 
