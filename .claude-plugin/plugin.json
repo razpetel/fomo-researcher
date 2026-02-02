@@ -1,0 +1,13 @@
+{
+  "name": "fomo-researcher",
+  "version": "1.0.0",
+  "description": "Multi-source research agent that investigates topics across GitHub, Reddit, Twitter, LinkedIn, and web with semantic duplicate detection",
+  "author": {
+    "name": "razpetel"
+  },
+  "skills": [
+    {
+      "skill": "./skills/research/SKILL.md"
+    }
+  ]
+}
